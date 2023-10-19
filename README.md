@@ -33,8 +33,6 @@ Ensure environment variables for database connection (DB_HOST, DB_USER, DB_PASSW
 
 ## Data Source
 
-The data used by this microservice is sourced from the official postal codes dataset provided by the French government.
-For more details or to access the raw dataset, you can visit the official link: [Base officielle des codes postaux](https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/). 
-We'd like to extend our gratitude to the contributors and maintainers of this dataset for making it publicly available, thereby aiding in the development of services like ours.
+The data used by this microservice is sourced from the official postal codes dataset. For more details or to access the raw dataset, you can visit the official link: [Base officielle des codes postaux](https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/). We'd like to extend our gratitude to the contributors and maintainers of this dataset for making it publicly available, thereby aiding in the development of services like ours.
 
 
