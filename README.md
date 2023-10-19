@@ -4,7 +4,9 @@
 This microservice provides functionality to search for nearby French cities based on a given geographical point, using coordinates (latitude and longitude) and a specified distance. It is designed to work with PhusionPassenger and Express and connects to a MySQL database to perform the query.
 
 **Author**: Calysteau
+
 **Version**: 1.0
+
 **Creation Date**: 10/19/2023
 
 ## Request Parameters
