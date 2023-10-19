@@ -30,3 +30,11 @@ Ensure environment variables for database connection (DB_HOST, DB_USER, DB_PASSW
 - Ensure to secure your microservice, especially if you plan to expose it on the internet.
 - For better error handling, make sure to validate input parameters and handle different errors that might arise.
 - Consider adding tests to ensure the reliability of the service.
+
+## Data Source
+
+The data used by this microservice is sourced from the official postal codes dataset provided by the French government.
+For more details or to access the raw dataset, you can visit the official link: [Base officielle des codes postaux](https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/). 
+We'd like to extend our gratitude to the contributors and maintainers of this dataset for making it publicly available, thereby aiding in the development of services like ours.
+
+
