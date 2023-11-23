@@ -7,9 +7,9 @@
  * 
  * Author: Calysteau
  * 
- * Version: 1.0
+ * Version: 1.1
  * 
- * Creation Date: 10/19/2023
+ * Creation Date: 11/23/2023
  * 
  * Request Parameters:
  *  - lat: Latitude of the reference point
@@ -44,7 +44,7 @@ db.connect(err => {
     console.log('Connected to the MySQL database.');
 });
 
-app.get('/getCitiesNearBy', (req, res) => {
+app.get('/services/getCitiesNearBy', (req, res) => {
     const { lat, lon, dist } = req.query;
 
     const query = `
@@ -53,17 +53,17 @@ app.get('/getCitiesNearBy', (req, res) => {
 	    WHERE ST_Distance_Sphere(SHAPE, ST_GeomFromText(CONCAT('POINT(', ?, ' ', ?, ')'))) < ?;
     `;
 
-    db.query(query, [lat, lon, dist],(err, results) => {
+    db.query(query, [lat, lon, dist], (err, results) => {
         if (err) {
             console.error("Error in the query:", err);
-            res.status(500).json({ error: "Error in the query." });
+            res.status(500).json({ error: "Error in the query. API Endpoint : GET /getCitiesNearBy?lat=<lat>&lon=<lon>&dist=<dist>" });
             return;
         }
-        res.json(results);
+        res.json(results.length > 0 ? results : { info: "No city found with the requested parameters. API Endpoint : GET /getCitiesNearBy?lat=<lat>&lon=<lon>&dist=<dist>" });
     });
 });
- 
-if (typeof(PhusionPassenger) !== 'undefined') {
+
+if (typeof (PhusionPassenger) !== 'undefined') {
     app.listen('passenger');
 } else {
     app.listen(3000);
