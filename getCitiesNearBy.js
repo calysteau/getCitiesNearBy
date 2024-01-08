@@ -7,9 +7,9 @@
  * 
  * Author: Calysteau
  * 
- * Version: 1.1
+ * Version: 1.2
  * 
- * Creation Date: 11/23/2023
+ * Creation Date: 01/08/2024
  * 
  * Request Parameters:
  *  - lat: Latitude of the reference point
@@ -45,7 +45,7 @@ db.connect(err => {
 });
 
 app.get('/services/getCitiesNearBy', (req, res) => {
-    const { lat, lon, dist } = req.query;
+    const { lon, lat, dist } = req.query;
 
     const query = `
         SELECT nom as name, code_postal as zipcode, code_commune as insee_code, SHAPE as coordinates
@@ -53,7 +53,7 @@ app.get('/services/getCitiesNearBy', (req, res) => {
 	    WHERE ST_Distance_Sphere(SHAPE, ST_GeomFromText(CONCAT('POINT(', ?, ' ', ?, ')'))) < ?;
     `;
 
-    db.query(query, [lat, lon, dist], (err, results) => {
+    db.query(query, [lon, lat, dist], (err, results) => {
         if (err) {
             console.error("Error in the query:", err);
             res.status(500).json({ error: "Error in the query. API Endpoint : GET /getCitiesNearBy?lat=<lat>&lon=<lon>&dist=<dist>" });
